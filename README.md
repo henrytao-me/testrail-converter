@@ -8,9 +8,13 @@ to TestRail's XML import file format.
 
 You can use the script as follows:
 
-> php csv2testrail.php <filter-script> <input-file> <output-file> [mode] [delimiter]
+```
+php csv2testrail.php <filter-script> <input-file> <output-file> [mode] [delimiter]
+```
 
-> php csvformatter.php <filter-script> <input-file> <output-file>
+```
+php csvformatter.php <filter-script> <input-file> <output-file> [delimiter]
+```
 
 <filter-script> a PHP script to extract the CSV data for conversion.
 See the project website for more details.
@@ -31,21 +35,3 @@ import/export file.
             the cases and sections
 			
 [delimiter] Allows you to override the default comma delimiter.
-
-You can learn more about this migration script on its project website:
-http://code.gurock.com/p/testrail-migrate/
-
-
-Included third-party code:
---------------------------
-
-PHP CSV Utilities (c) 2010 Luke Visinoni
-Published under the GNU Lesser General Public License:
-http://code.google.com/p/php-csv-utils/
-
--- 
-Copyright 2010 Gurock Software GmbH. All rights reserved.
-http://www.gurock.com - contact@gurock.com
-
-http://stackoverflow.com/questions/2507608/error-input-is-not-proper-utf-8-indicate-encoding-using-phps-simplexml-lo
-
