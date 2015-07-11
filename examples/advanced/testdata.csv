@@ -1,0 +1,12 @@
+Number,Title,Type,Priority,Preconditions,Steps,Expected Result,Section
+1,Export enclosed test document to PDF and verify rendering,Regression,Low,Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.,"1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.
+","Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum",Prerequisites
+1,,,,,"2. Lorem quam quis eget, tellus vestibulum rutrum",,
+1,,,,,3. Vitae massa eget urna elementum porta.,,
+1,,,,,4. Tellus vestibulum rutrum,,
+2,Change document margins and test interoperability with PDF export,Other,Normal,Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.,"1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.
+","Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum",Prerequisites
+3,Add new review data point (including note),Functionality,Normal,Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.,"1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.
+","Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum",Documentation & Help
+3,,,,,"2. Lorem quam quis eget, tellus vestibulum rutrum",,
+3,,,,,3. Tellus vestibulum rutrum,,

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sections>
+<section>
+<name>Prerequisites</name>
+<cases>
+<case>
+<title>Export enclosed test document to PDF and verify rendering</title>
+<type>Regression</type>
+<priority>1</priority>
+<custom>
+<preconds>Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.
+
+
+</preconds>
+<steps>1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.
+2. Lorem quam quis eget, tellus vestibulum rutrum
+3. Vitae massa eget urna elementum porta.
+4. Tellus vestibulum rutrum</steps>
+<expected>Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum
+
+
+</expected>
+</custom>
+</case>
+<case>
+<title>Change document margins and test interoperability with PDF export</title>
+<type>Other</type>
+<priority>3</priority>
+<custom>
+<preconds>Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.</preconds>
+<steps>1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.</steps>
+<expected>Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum</expected>
+</custom>
+</case>
+</cases>
+</section>
+<section>
+<name>Documentation &amp; Help</name>
+<cases>
+<case>
+<title>Add new review data point (including note)</title>
+<type>Functionality</type>
+<priority>3</priority>
+<custom>
+<preconds>Quisque pellentesque mauris ut nulla convallis placerat. Vivamus vitae massa eget urna elementum porta.
+
+</preconds>
+<steps>1. Etiam massa dolor, ornare sit amet, lacinia nec, bibendum ut, magna.
+2. Lorem quam quis eget, tellus vestibulum rutrum
+3. Tellus vestibulum rutrum</steps>
+<expected>Massa sodales eget lorem dolor, lorem quam quis eget, tellus vestibulum rutrum
+
+</expected>
+</custom>
+</case>
+</cases>
+</section>
+</sections>
