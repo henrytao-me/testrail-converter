@@ -80,12 +80,13 @@ function formatter($csv, $conf) {
 				$max_row = count($split_rows[$index]);
 			}
 		}
-		$max_row -= 1;
 		for($i = 0; $i < $max_row; $i++){
 			$new_row = $i == 0 ? $row : array_fill(0, count($row), "");
 			$new_row[$conf["id"]] = $row[$conf["id"]];
 			foreach($conf["rows"] as $index) {
-				$new_row[$index] = trim(preg_replace($conf["prefix"], "", $split_rows[$index][$i]));
+				if (isset($split_rows[$index][$i])) {
+					$new_row[$index] = trim(preg_replace($conf["prefix"], "", $split_rows[$index][$i]));
+				}
 			}
 			$res[] = $new_row;
 		}
@@ -100,6 +101,9 @@ function write_output($handle, $csv) {
 }
 
 function write_row($handle, $row) {
+	foreach ($row as $key => $value) {
+		$row[$key] = preg_replace("/\"/", "\"\"", $value);
+	}
 	fprintf($handle, "\"%s\"\n", implode("\",\"", $row));
 }
 
