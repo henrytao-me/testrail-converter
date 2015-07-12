@@ -73,9 +73,8 @@ function formatter($csv, $conf) {
 			continue;
 		}
 		$split_rows = array();
-		$max_row = 0;
-		$max_row_index = -1;
-		$min_row_index = -1;
+		$max_row_index = $conf["rows"][0];
+		$min_row_index = $conf["rows"][1];
 		foreach($conf["rows"] as $index) {
 			$split_rows[$index] = array();
 			foreach (explode("\n", $row[$index]) as $k => $v) {
@@ -83,15 +82,6 @@ function formatter($csv, $conf) {
 					trim(str_replace(trim(preg_replace($conf["prefix"], "", $v)), "", $v)),
 					preg_replace("/^(\-|\ |\- |\ \-)/", "", (preg_replace($conf["prefix"], "", $v)))
 				));
-			}
-			if ($max_row < count($split_rows[$index])) {
-				$max_row = count($split_rows[$index]);
-				$max_row_index = $index;
-			}
-		}
-		foreach($conf["rows"] as $index) {
-			if ($index != $max_row_index) {
-				$min_row_index = $index;
 			}
 		}
 		// var_dump(array($max_row_index, $min_row_index, $split_rows));
