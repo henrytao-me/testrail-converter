@@ -74,23 +74,49 @@ function formatter($csv, $conf) {
 		}
 		$split_rows = array();
 		$max_row = 0;
+		$max_row_index = -1;
+		$min_row_index = -1;
 		foreach($conf["rows"] as $index) {
-			$split_rows[$index] = explode("\n", $row[$index]);
+			$split_rows[$index] = array();
+			foreach (explode("\n", $row[$index]) as $k => $v) {
+				array_push($split_rows[$index], array(
+					trim(str_replace(trim(preg_replace($conf["prefix"], "", $v)), "", $v)),
+					preg_replace("/^(\-|\ |\- |\ \-)/", "", (preg_replace($conf["prefix"], "", $v)))
+				));
+			}
 			if ($max_row < count($split_rows[$index])) {
 				$max_row = count($split_rows[$index]);
+				$max_row_index = $index;
 			}
 		}
-		for($i = 0; $i < $max_row; $i++){
-			$new_row = $i == 0 ? $row : array_fill(0, count($row), "");
+		foreach($conf["rows"] as $index) {
+			if ($index != $max_row_index) {
+				$min_row_index = $index;
+			}
+		}
+		// var_dump(array($max_row_index, $min_row_index, $split_rows));
+		// exit();
+		foreach ($split_rows[$max_row_index] as $key => $value) {
+			$new_row = $key == 0 ? $row : array_fill(0, count($row), "");
 			$new_row[$conf["id"]] = $row[$conf["id"]];
-			foreach($conf["rows"] as $index) {
-				if (isset($split_rows[$index][$i])) {
-					$new_row[$index] = trim(preg_replace($conf["prefix"], "", $split_rows[$index][$i]));
+			$new_row[$max_row_index] = $value[1];
+			$new_row[$min_row_index] = "";
+			if ($value[0] == "") {
+				$new_row[$min_row_index] = "";
+			} else {
+				foreach ($split_rows[$min_row_index] as $minKey => $minValue) {
+					if ($minValue[0] == $value[0] || ($key == (count($split_rows[$max_row_index]) - 1) && $minValue[0] == "")) {
+						$new_row[$min_row_index] = $new_row[$min_row_index]." ".$minValue[1];
+					}
 				}
 			}
+			$new_row[$min_row_index] = trim($new_row[$min_row_index]);
+			// var_dump($new_row);
+			// exit();
 			$res[] = $new_row;
 		}
 	}
+	// var_dump($res);
 	return $res;
 }
 
